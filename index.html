@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO -->
+  <title>Pietro Lungarini</title>
+  <meta name="description" content="Personal link-in-bio page for Pietro Lungarini, full stack web developer.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pietro Lungarini">
+  <meta property="og:description" content="Personal link-in-bio page for Pietro Lungarini, full stack web developer.">
+  <meta property="og:url" content="https://bio.pietro.lungarini.it">
+  <meta property="og:image" content="https://bio.pietro.lungarini.it/assets/og/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://bio.pietro.lungarini.it/assets/og/og-preview.png">
+  <meta name="twitter:title" content="Pietro Lungarini">
+  <meta name="twitter:description" content="Personal link-in-bio page for Pietro Lungarini, full stack web developer.">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://bio.pietro.lungarini.it">
+
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Max mobile width, centered on desktop ── */
+    body {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--sp-5) var(--sp-4) var(--sp-7);
+    }
+
+    .page {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-5);
+    }
+
+    /* ── Theme toggle ── */
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .theme-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--r-md);
+      border: 1px solid var(--border-1);
+      background: var(--bg-surface);
+      box-shadow: var(--shadow-xs);
+      color: var(--fg-2);
+      cursor: pointer;
+      transition: background var(--dur-fast) var(--ease-out),
+        border-color var(--dur-fast) var(--ease-out),
+        color var(--dur-fast) var(--ease-out);
+    }
+
+    .theme-btn:hover {
+      background: var(--bg-sunken);
+      border-color: var(--border-2);
+      color: var(--fg-1);
+    }
+
+    .theme-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ── Profile header ── */
+    .profile {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+    }
+
+    .avatar-wrap {
+      flex-shrink: 0;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      padding: 2px;
+      background: var(--pastel-rose);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .profile-meta h1 {
+      font-size: clamp(22px, 6vw, 28px);
+      color: var(--fg-1);
+    }
+
+    .location {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: var(--fs-small);
+      color: var(--fg-3);
+    }
+
+    .location svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+
+    .bio-tag {
+      font-family: var(--font-mono);
+      font-size: var(--fs-small);
+      color: var(--fg-3);
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Social icons ── */
+    .social-row {
+      display: flex;
+      gap: var(--sp-2);
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--r-md);
+      border: 1px solid var(--border-1);
+      background: var(--bg-surface);
+      box-shadow: var(--shadow-xs);
+      color: var(--fg-2);
+      text-decoration: none;
+      transition: background var(--dur-fast) var(--ease-out),
+        border-color var(--dur-fast) var(--ease-out),
+        color var(--dur-fast) var(--ease-out),
+        transform var(--dur-fast) var(--ease-out);
+    }
+
+    .social-btn:hover {
+      background: var(--bg-sunken);
+      border-color: var(--border-2);
+      color: var(--fg-1);
+    }
+
+    .social-btn:active {
+      transform: translateY(1px);
+    }
+
+    .social-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ── Link cards ── */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-4);
+      padding: var(--sp-4) var(--sp-5);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-1);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+      transition: background var(--dur-base) var(--ease-out),
+        border-color var(--dur-base) var(--ease-out),
+        box-shadow var(--dur-base) var(--ease-out),
+        transform var(--dur-fast) var(--ease-out);
+    }
+
+    .link-card:hover {
+      background: var(--bg-sunken);
+      border-color: var(--border-2);
+      box-shadow: var(--shadow-md);
+    }
+
+    .link-card:active {
+      transform: translateY(1px);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .link-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .link-title {
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      font-weight: var(--fw-medium);
+      color: var(--fg-1);
+      line-height: var(--lh-snug);
+    }
+
+    .link-desc {
+      font-family: var(--font-body);
+      font-size: var(--fs-small);
+      color: var(--fg-3);
+      line-height: var(--lh-snug);
+    }
+
+    .link-arrow {
+      flex-shrink: 0;
+      color: var(--fg-3);
+    }
+
+    .link-arrow svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ── Divider ── */
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: var(--fs-micro);
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--fg-3);
+      padding-top: var(--sp-2);
+    }
+
+    /* ── Buy Me a Coffee card ── */
+    .bmc-card {
+      margin-top: var(--sp-2);
+    }
+
+    .bmc-card {
+      background: var(--pastel-butter) !important;
+      border-color: oklch(87% 0.072 90) !important;
+    }
+
+    .bmc-card:hover {
+      background: oklch(90% 0.072 92) !important;
+    }
+
+    /* Force dark text — butter bg is always light */
+    .bmc-card .link-title {
+      color: oklch(26% 0.025 60) !important;
+    }
+
+    .bmc-card .link-desc {
+      color: oklch(45% 0.022 60) !important;
+    }
+
+    .bmc-card .link-arrow {
+      color: oklch(52% 0.018 60) !important;
+    }
+
+    .bmc-inner {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      flex: 1;
+      min-width: 0;
+    }
+
+    .bmc-icon {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      color: oklch(50% 0.09 60);
+    }
+
+    .bmc-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ── GitHub profile card ── */
+    .gh-section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+    }
+
+    .gh-label {
+      font-family: var(--font-mono);
+      font-size: var(--fs-small);
+      color: var(--fg-3);
+    }
+
+    .gh-card {
+      display: block;
+      text-decoration: none;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-1);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: box-shadow var(--dur-base) var(--ease-out),
+        border-color var(--dur-base) var(--ease-out),
+        transform var(--dur-fast) var(--ease-out);
+    }
+
+    .gh-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-2);
+    }
+
+    .gh-card:active {
+      transform: translateY(1px);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .gh-body {
+      padding: var(--sp-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+
+    .gh-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--sp-3);
+    }
+
+    .gh-identity {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .gh-username {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 7vw, 34px);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+      color: var(--fg-1);
+    }
+
+    .gh-handle {
+      font-family: var(--font-mono);
+      font-size: var(--fs-small);
+      color: var(--fg-3);
+    }
+
+    .gh-avatar {
+      flex-shrink: 0;
+      width: 64px;
+      height: 64px;
+      border-radius: var(--r-lg);
+      border: 1px solid var(--border-1);
+      object-fit: cover;
+      display: block;
+    }
+
+    .gh-name {
+      font-size: var(--fs-body);
+      font-weight: var(--fw-strong);
+      color: var(--fg-1);
+    }
+
+    .gh-bio {
+      font-size: var(--fs-small);
+      color: var(--fg-3);
+      line-height: var(--lh-body);
+      text-wrap: pretty;
+    }
+
+    .gh-stats {
+      display: flex;
+      gap: var(--sp-4);
+      flex-wrap: wrap;
+    }
+
+    .gh-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .gh-stat-val {
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      font-weight: var(--fw-strong);
+      color: var(--fg-1);
+    }
+
+    .gh-stat-label {
+      font-size: var(--fs-micro);
+      color: var(--fg-3);
+      letter-spacing: 0.02em;
+    }
+
+    .gh-footer {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+      padding: var(--sp-3) var(--sp-5);
+      border-top: 1px solid var(--border-1);
+      background: var(--bg-sunken);
+    }
+
+    .gh-footer-item {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-size: var(--fs-small);
+      color: var(--fg-3);
+    }
+
+    .gh-footer-item svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    .gh-footer-spacer {
+      flex: 1;
+    }
+
+    .gh-mark {
+      color: var(--fg-3);
+      display: flex;
+      align-items: center;
+    }
+
+    .gh-mark svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .gh-accent {
+      height: 3px;
+      background: var(--pastel-butter);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: auto;
+      padding-top: var(--sp-5);
+      font-family: var(--font-mono);
+      font-size: var(--fs-micro);
+      color: var(--fg-3);
+      text-align: center;
+    }
+
+    /* ── Entrance animation ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .profile {
+      animation: fadeUp var(--dur-slow) var(--ease-out) 0ms both;
+    }
+
+    .links {
+      animation: fadeUp var(--dur-slow) var(--ease-out) 80ms both;
+    }
+
+    .footer {
+      animation: fadeUp var(--dur-slow) var(--ease-out) 160ms both;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <div class="top-bar">
+      <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
+        <i data-lucide="sun" id="themeIconSun"></i>
+        <i data-lucide="moon" id="themeIconMoon" style="display:none"></i>
+      </button>
+    </div>
+
+    <header class="profile">
+      <div class="profile-top">
+        <div class="avatar-wrap">
+          <img src="/assets/avatar.jpeg" alt="Pietro Lungarini">
+        </div>
+        <div class="profile-meta">
+          <h1>Pietro Lungarini</h1>
+          <span class="location">
+            <i data-lucide="map-pin"></i>
+            Italy
+          </span>
+        </div>
+      </div>
+
+      <p class="bio-tag">// full stack web developer</p>
+
+      <div class="social-row">
+        <a href="https://twitter.com/wheresbebo" class="social-btn" target="_blank" rel="noopener"
+          aria-label="X / Twitter">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          </svg>
+        </a>
+        <a href="mailto:pietro@lungarini.it" class="social-btn" aria-label="Email">
+          <i data-lucide="mail"></i>
+        </a>
+        <a href="https://instagram.com/wheresbebo" class="social-btn" target="_blank" rel="noopener"
+          aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+          </svg>
+        </a>
+        <a href="https://github.com/plungarini" class="social-btn" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <nav class="links">
+      <a href="https://github.com/plungarini" class="link-card" target="_blank" rel="noopener">
+        <div class="link-info">
+          <span class="link-title">GitHub</span>
+          <span class="link-desc">All my public repos</span>
+        </div>
+        <span class="link-arrow"><i data-lucide="arrow-right"></i></span>
+      </a>
+
+      <a href="https://pietro.lungarini.it" class="link-card" target="_blank" rel="noopener">
+        <div class="link-info">
+          <span class="link-title">Web Dev Portfolio</span>
+          <span class="link-desc">Get to know my work</span>
+        </div>
+        <span class="link-arrow"><i data-lucide="arrow-right"></i></span>
+      </a>
+
+      <a href="evenhub-apps" class="link-card">
+        <div class="link-info">
+          <span class="link-title">Even Hub - Apps</span>
+          <span class="link-desc">Developed for EvenRealities's smart glasses</span>
+        </div>
+        <span class="link-arrow"><i data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="https://buymeacoffee.com/wheresbebo" class="link-card bmc-card" target="_blank" rel="noopener">
+        <div class="bmc-inner">
+          <span class="bmc-icon"><i data-lucide="coffee"></i></span>
+          <div class="link-info">
+            <span class="link-title">Buy me a coffee</span>
+            <span class="link-desc">@wheresbebo</span>
+          </div>
+        </div>
+        <span class="link-arrow"><i data-lucide="arrow-right"></i></span>
+      </a>
+
+    </nav>
+
+    <section class="gh-section">
+      <p class="gh-label">// find me on github</p>
+      <a href="https://github.com/plungarini" class="gh-card" target="_blank" rel="noopener">
+        <div class="gh-body">
+          <div class="gh-top">
+            <div class="gh-identity">
+              <div class="gh-username" id="ghUsername">plungarini</div>
+              <div class="gh-handle">github.com/plungarini</div>
+            </div>
+            <img class="gh-avatar" id="ghAvatar" alt="plungarini" style="display:none">
+          </div>
+          <div>
+            <div class="gh-name" id="ghName">Pietro Lungarini</div>
+            <p class="gh-bio" id="ghBio">Full stack web developer.</p>
+          </div>
+          <div class="gh-stats">
+            <div class="gh-stat"><span class="gh-stat-val" id="ghRepos">—</span><span
+                class="gh-stat-label">Repositories</span></div>
+            <div class="gh-stat"><span class="gh-stat-val" id="ghFollowers">—</span><span
+                class="gh-stat-label">Followers</span></div>
+            <div class="gh-stat"><span class="gh-stat-val" id="ghFollowing">—</span><span
+                class="gh-stat-label">Following</span></div>
+            <div class="gh-stat"><span class="gh-stat-val" id="ghStars">—</span><span class="gh-stat-label">Stars</span>
+            </div>
+          </div>
+        </div>
+        <div class="gh-footer">
+          <div class="gh-footer-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            Italy
+          </div>
+          <div class="gh-footer-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+            </svg>
+            pietro.lungarini.it
+          </div>
+          <div class="gh-footer-spacer"></div>
+          <span class="gh-mark">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
+          </span>
+        </div>
+        <div class="gh-accent"></div>
+      </a>
+    </section>
+
+    <footer class="footer"><a href="https://pietro.lungarini.it" target="_blank" rel="noopener"
+        style="color:inherit;text-decoration:none;">} pietro.lungarini.it</a></footer>
+
+  </div>
+
+  <script>
+    // ── Theme logic ──
+    const root = document.documentElement;
+    const btn = document.getElementById('themeToggle');
+    const iconSun = document.getElementById('themeIconSun');
+    const iconMoon = document.getElementById('themeIconMoon');
+
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      if (theme === 'dark') {
+        iconSun.style.display = 'block';
+        iconMoon.style.display = 'none';
+      } else {
+        iconSun.style.display = 'none';
+        iconMoon.style.display = 'block';
+      }
+      localStorage.setItem('pastel-theme', theme);
+    }
+
+    // Resolve initial theme
+    const saved = localStorage.getItem('pastel-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(saved || (prefersDark ? 'dark' : 'light'));
+
+    // ── GitHub profile card ──
+    (async () => {
+      try {
+        const [user, repos] = await Promise.all([
+          fetch('https://api.github.com/users/plungarini').then(r => r.json()),
+          fetch('https://api.github.com/users/plungarini/repos?per_page=100&type=owner').then(r => r.json())
+        ]);
+        if (user.name) document.getElementById('ghName').textContent = user.name;
+        if (user.bio) document.getElementById('ghBio').textContent = user.bio;
+        if (user.avatar_url) {
+          const av = document.getElementById('ghAvatar');
+          av.src = user.avatar_url;
+          av.style.display = 'block';
+        }
+        document.getElementById('ghRepos').textContent = user.public_repos ?? '—';
+        document.getElementById('ghFollowers').textContent = user.followers ?? '—';
+        document.getElementById('ghFollowing').textContent = user.following ?? '—';
+        if (Array.isArray(repos)) {
+          const stars = repos.reduce((s, r) => s + (r.stargazers_count || 0), 0);
+          document.getElementById('ghStars').textContent = stars;
+        }
+      } catch (e) { /* keep defaults silently */ }
+    })();
+
+    btn.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+
+    // ── Init Lucide icons ──
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>

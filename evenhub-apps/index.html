@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO -->
+  <title>Even Hub - Apps · Pietro Lungarini</title>
+  <meta name="description" content="Personal link-in-bio page for Pietro Lungarini, full stack web developer.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pietro Lungarini">
+  <meta property="og:description" content="Personal link-in-bio page for Pietro Lungarini, full stack web developer.">
+  <meta property="og:url" content="https://bio.pietro.lungarini.it">
+  <meta property="og:image" content="https://bio.pietro.lungarini.it/assets/og/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://bio.pietro.lungarini.it/assets/og/og-preview.png">
+  <meta name="twitter:title" content="Pietro Lungarini">
+  <meta name="twitter:description" content="Personal link-in-bio page for Pietro Lungarini, full stack web developer.">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://bio.pietro.lungarini.it/evenhub-apps/">
+
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Max mobile width, centered on desktop ── */
+    body {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--sp-5) var(--sp-4) var(--sp-7);
+    }
+
+    .page {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-5);
+    }
+
+    /* ── Top bar: back btn stays in flow, theme btn in flow ── */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-family: var(--font-mono);
+      font-size: var(--fs-small);
+      color: var(--fg-3);
+      text-decoration: none;
+      padding: 8px 12px 8px 10px;
+      border-radius: var(--r-md);
+      border: 1px solid var(--border-1);
+      background: var(--bg-surface);
+      box-shadow: var(--shadow-xs);
+      transition: color var(--dur-fast) var(--ease-out),
+        border-color var(--dur-fast) var(--ease-out),
+        background var(--dur-fast) var(--ease-out);
+    }
+
+    .back-btn:hover {
+      color: var(--fg-1);
+      border-color: var(--border-2);
+      background: var(--bg-sunken);
+    }
+
+    .back-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .theme-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--r-md);
+      border: 1px solid var(--border-1);
+      background: var(--bg-surface);
+      box-shadow: var(--shadow-xs);
+      color: var(--fg-2);
+      cursor: pointer;
+      transition: background var(--dur-fast) var(--ease-out),
+        border-color var(--dur-fast) var(--ease-out),
+        color var(--dur-fast) var(--ease-out);
+    }
+
+    .theme-btn:hover {
+      background: var(--bg-sunken);
+      border-color: var(--border-2);
+      color: var(--fg-1);
+    }
+
+    .theme-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ── Profile header ── */
+    .profile {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+    }
+
+    .avatar-wrap {
+      flex-shrink: 0;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      padding: 2px;
+      background: var(--pastel-rose);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .profile-meta h1 {
+      font-size: clamp(22px, 6vw, 28px);
+      color: var(--fg-1);
+    }
+
+    .location {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: var(--fs-small);
+      color: var(--fg-3);
+    }
+
+    .location svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+
+    .bio-tag {
+      font-family: var(--font-mono);
+      font-size: var(--fs-small);
+      color: var(--fg-3);
+    }
+
+    .social-row {
+      display: flex;
+      gap: var(--sp-2);
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--r-md);
+      border: 1px solid var(--border-1);
+      background: var(--bg-surface);
+      box-shadow: var(--shadow-xs);
+      color: var(--fg-2);
+      text-decoration: none;
+      transition: background var(--dur-fast) var(--ease-out),
+        border-color var(--dur-fast) var(--ease-out),
+        color var(--dur-fast) var(--ease-out),
+        transform var(--dur-fast) var(--ease-out);
+    }
+
+    .social-btn:hover {
+      background: var(--bg-sunken);
+      border-color: var(--border-2);
+      color: var(--fg-1);
+    }
+
+    .social-btn:active {
+      transform: translateY(1px);
+    }
+
+    .social-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ── Section header ── */
+    .section-head {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-top: var(--sp-1);
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: var(--fs-micro);
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--fg-3);
+    }
+
+    .section-head h2 {
+      font-size: var(--fs-h3);
+      color: var(--fg-1);
+    }
+
+    .section-desc {
+      font-size: var(--fs-small);
+      color: var(--fg-3);
+      line-height: var(--lh-body);
+    }
+
+    /* ── App cards ── */
+    .apps {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+    }
+
+    .app-card {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+      padding: var(--sp-4) var(--sp-5);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-1);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+      transition: background var(--dur-base) var(--ease-out),
+        border-color var(--dur-base) var(--ease-out),
+        box-shadow var(--dur-base) var(--ease-out),
+        transform var(--dur-fast) var(--ease-out);
+    }
+
+    .app-card:hover {
+      background: var(--bg-sunken);
+      border-color: var(--border-2);
+      box-shadow: var(--shadow-md);
+    }
+
+    .app-card:active {
+      transform: translateY(1px);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .app-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-1);
+    }
+
+    .app-icon svg {
+      width: 26px;
+      height: 26px;
+      color: var(--fg-on-accent);
+    }
+
+    .app-icon-img {
+      width: 26px;
+      height: 26px;
+      display: block;
+      filter: brightness(0) opacity(0.70);
+    }
+
+    .app-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .app-name {
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      font-weight: var(--fw-medium);
+      color: var(--fg-1);
+      line-height: var(--lh-snug);
+    }
+
+    .app-desc {
+      font-family: var(--font-body);
+      font-size: var(--fs-small);
+      color: var(--fg-3);
+      line-height: var(--lh-snug);
+      text-wrap: pretty;
+    }
+
+    /* ── Link card (used by BMC) ── */
+    .link-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-4);
+      padding: var(--sp-4) var(--sp-5);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-1);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+      transition: background var(--dur-base) var(--ease-out),
+        border-color var(--dur-base) var(--ease-out),
+        box-shadow var(--dur-base) var(--ease-out),
+        transform var(--dur-fast) var(--ease-out);
+    }
+
+    .link-card:hover {
+      background: var(--bg-sunken);
+      border-color: var(--border-2);
+      box-shadow: var(--shadow-md);
+    }
+
+    .link-card:active {
+      transform: translateY(1px);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .link-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .link-title {
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      font-weight: var(--fw-medium);
+      color: var(--fg-1);
+      line-height: var(--lh-snug);
+    }
+
+    .link-desc {
+      font-family: var(--font-body);
+      font-size: var(--fs-small);
+      color: var(--fg-3);
+      line-height: var(--lh-snug);
+    }
+
+    .link-arrow {
+      flex-shrink: 0;
+      color: var(--fg-3);
+    }
+
+    .link-arrow svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* BMC sits inside .apps but with a tiny extra top gap for visual separation */
+    .bmc-card {
+      margin-top: var(--sp-2);
+    }
+
+    /* ── Buy Me a Coffee card ── */
+    .bmc-card {
+      background: var(--pastel-butter) !important;
+      border-color: oklch(87% 0.072 90) !important;
+    }
+
+    .bmc-card:hover {
+      background: oklch(90% 0.072 92) !important;
+    }
+
+    /* Force dark text — butter bg is always light */
+    .bmc-card .link-title {
+      color: oklch(26% 0.025 60) !important;
+    }
+
+    .bmc-card .link-desc {
+      color: oklch(45% 0.022 60) !important;
+    }
+
+    .bmc-card .link-arrow {
+      color: oklch(52% 0.018 60) !important;
+    }
+
+    .bmc-inner {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      flex: 1;
+      min-width: 0;
+    }
+
+    .bmc-icon {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      color: oklch(50% 0.09 60);
+    }
+
+    .bmc-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ── Repo card ── */
+    .repo-section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+    }
+
+    .repo-label {
+      font-family: var(--font-mono);
+      font-size: var(--fs-small);
+      color: var(--fg-3);
+    }
+
+    .repo-card {
+      display: block;
+      text-decoration: none;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-1);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: box-shadow var(--dur-base) var(--ease-out),
+        border-color var(--dur-base) var(--ease-out),
+        transform var(--dur-fast) var(--ease-out);
+    }
+
+    .repo-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-2);
+    }
+
+    .repo-card:active {
+      transform: translateY(1px);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .repo-body {
+      padding: var(--sp-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+
+    .repo-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--sp-3);
+    }
+
+    .repo-name {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 6vw, 28px);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--fg-1);
+      letter-spacing: -0.02em;
+    }
+
+    .repo-name span {
+      font-weight: 400;
+      color: var(--fg-2);
+    }
+
+    .repo-avatar {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      border-radius: var(--r-md);
+      border: 1px solid var(--border-1);
+      object-fit: cover;
+      display: block;
+    }
+
+    .repo-desc {
+      font-size: var(--fs-small);
+      color: var(--fg-3);
+      line-height: var(--lh-body);
+      text-wrap: pretty;
+      min-height: 1em;
+    }
+
+    .repo-stats {
+      display: flex;
+      gap: var(--sp-5);
+    }
+
+    .repo-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .repo-stat-val {
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      font-weight: var(--fw-strong);
+      color: var(--fg-1);
+    }
+
+    .repo-stat-label {
+      font-size: var(--fs-micro);
+      color: var(--fg-3);
+      letter-spacing: 0.02em;
+    }
+
+    .repo-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--sp-3) var(--sp-5);
+      border-top: 1px solid var(--border-1);
+      background: var(--bg-sunken);
+    }
+
+    .repo-lang {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-family: var(--font-mono);
+      font-size: var(--fs-micro);
+      color: var(--fg-3);
+    }
+
+    .repo-lang-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--pastel-sky);
+      flex-shrink: 0;
+    }
+
+    .repo-gh-icon {
+      color: var(--fg-3);
+      display: flex;
+      align-items: center;
+    }
+
+    .repo-gh-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .repo-accent {
+      height: 3px;
+      background: var(--pastel-sage);
+    }
+
+    .repo-skeleton .repo-name {
+      background: var(--bg-sunken);
+      border-radius: 4px;
+      color: transparent;
+      width: 70%;
+    }
+
+    .repo-skeleton .repo-desc {
+      background: var(--bg-sunken);
+      border-radius: 4px;
+      color: transparent;
+    }
+
+    .repo-skeleton .repo-stat-val {
+      background: var(--bg-sunken);
+      border-radius: 4px;
+      color: transparent;
+      width: 24px;
+    }
+
+    /* ── Pitch form ── */
+    .pitch-section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+
+    .pitch-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: var(--sp-3) var(--sp-4);
+      background: var(--bg-sunken);
+      border: 1px solid var(--border-1);
+      border-radius: var(--r-md);
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      color: var(--fg-1);
+      outline: none;
+      resize: none;
+      transition: border-color var(--dur-fast) var(--ease-out),
+        box-shadow var(--dur-fast) var(--ease-out);
+    }
+
+    .form-input::placeholder {
+      color: var(--fg-3);
+    }
+
+    .form-input:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px oklch(68% 0.10 240 / 0.12);
+    }
+
+    .form-textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      align-self: flex-start;
+      padding: var(--sp-3) var(--sp-5);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-2);
+      border-radius: var(--r-md);
+      font-family: var(--font-mono);
+      font-size: var(--fs-small);
+      color: var(--fg-1);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: background var(--dur-fast) var(--ease-out),
+        box-shadow var(--dur-fast) var(--ease-out),
+        transform var(--dur-fast) var(--ease-out);
+    }
+
+    .form-submit:hover {
+      background: var(--bg-sunken);
+      box-shadow: var(--shadow-md);
+    }
+
+    .form-submit:active {
+      transform: translateY(1px);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .form-sent {
+      font-family: var(--font-mono);
+      font-size: var(--fs-small);
+      color: var(--success);
+      display: none;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: auto;
+      padding-top: var(--sp-5);
+      font-family: var(--font-mono);
+      font-size: var(--fs-micro);
+      color: var(--fg-3);
+      text-align: center;
+    }
+
+    /* ── Entrance animation ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .profile {
+      animation: fadeUp 420ms cubic-bezier(0.22, 0.61, 0.36, 1) 0ms both;
+    }
+
+    .section-head {
+      animation: fadeUp 420ms cubic-bezier(0.22, 0.61, 0.36, 1) 60ms both;
+    }
+
+    .apps {
+      animation: fadeUp 420ms cubic-bezier(0.22, 0.61, 0.36, 1) 100ms both;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <div class="top-bar">
+      <a href="/" class="back-btn">
+        <i data-lucide="arrow-left"></i>
+        back
+      </a>
+      <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
+        <i data-lucide="sun" id="themeIconSun"></i>
+        <i data-lucide="moon" id="themeIconMoon" style="display:none"></i>
+      </button>
+    </div>
+
+    <header class="profile">
+      <div class="profile-top">
+        <div class="avatar-wrap">
+          <img src="/assets/avatar.jpeg" alt="Pietro Lungarini">
+        </div>
+        <div class="profile-meta">
+          <h1>Pietro Lungarini</h1>
+          <span class="location"><i data-lucide="map-pin"></i> Italy</span>
+        </div>
+      </div>
+      <p class="bio-tag">// full stack web developer</p>
+      <div class="social-row">
+        <a href="https://twitter.com/wheresbebo" class="social-btn" target="_blank" rel="noopener" aria-label="X">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          </svg>
+        </a>
+        <a href="mailto:pietro@lungarini.it" class="social-btn" aria-label="Email"><i data-lucide="mail"></i></a>
+        <a href="https://instagram.com/wheresbebo" class="social-btn" target="_blank" rel="noopener"
+          aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+          </svg>
+        </a>
+        <a href="https://github.com/plungarini" class="social-btn" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <div class="section-head">
+      <h2>Even Hub - Apps</h2>
+      <p class="section-desc">Developed for EvenRealities's smart glasses</p>
+    </div>
+
+    <nav class="apps">
+
+      <a href="https://evenhub.evenrealities.com/landing?package_id=com.plungarini.redditfeed" class="app-card"
+        target="_blank" rel="noopener">
+        <div class="app-icon" style="background:var(--pastel-peach)">
+          <img src="/assets/icons/redditfeed.svg" width="20" height="20" alt="Reddit Feed" class="app-icon-img">
+        </div>
+        <div class="app-info">
+          <span class="app-name">Reddit Feed</span>
+          <span class="app-desc">Browse your Reddit straight from your glasses.</span>
+        </div>
+      </a>
+
+      <a href="https://evenhub.evenrealities.com/landing?package_id=com.plungarini.birdie" class="app-card"
+        target="_blank" rel="noopener">
+        <div class="app-icon" style="background:var(--pastel-sage)">
+          <img src="/assets/icons/birdie.svg" width="20" height="20" alt="Birdie" class="app-icon-img">
+        </div>
+        <div class="app-info">
+          <span class="app-name">Birdie</span>
+          <span class="app-desc">Real-time bird ID from your glasses' mic.</span>
+        </div>
+      </a>
+
+      <a href="https://evenhub.evenrealities.com/landing?package_id=com.plungarini.blackjack" class="app-card"
+        target="_blank" rel="noopener">
+        <div class="app-icon" style="background:var(--pastel-lilac)">
+          <img src="/assets/icons/blackjack.svg" width="20" height="20" alt="Blackjack" class="app-icon-img">
+        </div>
+        <div class="app-info">
+          <span class="app-name">Blackjack</span>
+          <span class="app-desc">Blackjack card counting trainer on the HUD.</span>
+        </div>
+      </a>
+
+      <a href="https://evenhub.evenrealities.com/landing?package_id=com.plungarini.smokeless" class="app-card"
+        target="_blank" rel="noopener">
+        <div class="app-icon" style="background:var(--pastel-clay)">
+          <img src="/assets/icons/smokeless.svg" width="20" height="20" alt="Smokeless" class="app-icon-img">
+        </div>
+        <div class="app-info">
+          <span class="app-name">Smokeless</span>
+          <span class="app-desc">Logs every cigarette so the frequency speaks for itself.</span>
+        </div>
+      </a>
+
+      <a href="https://evenhub.evenrealities.com/landing?package_id=com.plungarini.thisday" class="app-card"
+        target="_blank" rel="noopener">
+        <div class="app-icon" style="background:var(--pastel-sky)">
+          <img src="/assets/icons/thisday.svg" width="20" height="20" alt="This Day" class="app-icon-img">
+        </div>
+        <div class="app-info">
+          <span class="app-name">This Day</span>
+          <span class="app-desc">A daily on-this-day history fact, served every morning.</span>
+        </div>
+      </a>
+
+      <a href="https://evenhub.evenrealities.com/landing?package_id=com.plungarini.phase" class="app-card"
+        target="_blank" rel="noopener">
+        <div class="app-icon" style="background:var(--pastel-mint)">
+          <img src="/assets/icons/phase.svg" width="20" height="20" alt="Phase" class="app-icon-img">
+        </div>
+        <div class="app-info">
+          <span class="app-name">Phase</span>
+          <span class="app-desc">Biorhythm reader that tracks your daily cycles.</span>
+        </div>
+      </a>
+
+      <a href="https://evenhub.evenrealities.com/landing?package_id=com.plungarini.thevoid" class="app-card"
+        target="_blank" rel="noopener">
+        <div class="app-icon" style="background:var(--pastel-rose)">
+          <img src="/assets/icons/thevoid.svg" width="20" height="20" alt="The Void" class="app-icon-img">
+        </div>
+        <div class="app-info">
+          <span class="app-name">The Void</span>
+          <span class="app-desc">Tracks the world's death rate in real time.</span>
+        </div>
+      </a>
+
+      <a href="https://buymeacoffee.com/wheresbebo" class="link-card bmc-card" target="_blank" rel="noopener">
+        <div class="bmc-inner">
+          <span class="bmc-icon"><i data-lucide="coffee"></i></span>
+          <div class="link-info">
+            <span class="link-title">Buy me a coffee</span>
+            <span class="link-desc">@wheresbebo</span>
+          </div>
+        </div>
+        <span class="link-arrow"><i data-lucide="arrow-right"></i></span>
+      </a>
+
+    </nav>
+
+    <section class="repo-section">
+      <p class="repo-label">// the source is out there — go take a look</p>
+      <a href="https://github.com/plungarini/even-apps" class="repo-card" target="_blank" rel="noopener" id="repoCard">
+        <div class="repo-accent"></div>
+        <div class="repo-body">
+          <div class="repo-top">
+            <div class="repo-name" id="repoName"><span>plungarini/</span>even-apps</div>
+            <img class="repo-avatar" id="repoAvatar" alt="" style="display:none">
+          </div>
+          <p class="repo-desc" id="repoDesc">Apps built for EvenRealities smart glasses.</p>
+          <div class="repo-stats">
+            <div class="repo-stat">
+              <span class="repo-stat-val" id="repoStars">—</span>
+              <span class="repo-stat-label">Stars</span>
+            </div>
+            <div class="repo-stat">
+              <span class="repo-stat-val" id="repoForks">—</span>
+              <span class="repo-stat-label">Forks</span>
+            </div>
+            <div class="repo-stat">
+              <span class="repo-stat-val" id="repoIssues">—</span>
+              <span class="repo-stat-label">Issues</span>
+            </div>
+            <div class="repo-stat">
+              <span class="repo-stat-val" id="repoContribs">—</span>
+              <span class="repo-stat-label">Contributors</span>
+            </div>
+          </div>
+        </div>
+        <div class="repo-footer">
+          <div class="repo-lang">
+            <span class="repo-lang-dot" id="repoLangDot"></span>
+            <span id="repoLang">TypeScript</span>
+          </div>
+          <span class="repo-gh-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
+          </span>
+        </div>
+      </a>
+    </section>
+
+    <section class="pitch-section">
+      <div class="section-head">
+        <span class="section-eyebrow">// got an idea?</span>
+        <h2>Pitch an app</h2>
+        <p class="section-desc">Something cool for Even glasses in mind? Send it over.</p>
+      </div>
+      <form class="pitch-form" id="pitchForm" novalidate>
+        <input class="form-input" type="email" id="pitchEmail" placeholder="your email" required>
+        <textarea class="form-input form-textarea" id="pitchMessage" placeholder="describe the idea..."
+          required></textarea>
+        <div style="display:flex;align-items:center;gap:var(--sp-4)">
+          <button class="form-submit" type="submit">send it →</button>
+          <span class="form-sent" id="formSent">// sent. thanks.</span>
+        </div>
+      </form>
+    </section>
+
+    <footer class="footer"><a href="https://pietro.lungarini.it" target="_blank" rel="noopener"
+        style="color:inherit;text-decoration:none;">} pietro.lungarini.it</a></footer>
+
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    const btn = document.getElementById('themeToggle');
+    const iconSun = document.getElementById('themeIconSun');
+    const iconMoon = document.getElementById('themeIconMoon');
+
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      iconSun.style.display = theme === 'dark' ? 'block' : 'none';
+      iconMoon.style.display = theme === 'dark' ? 'none' : 'block';
+      localStorage.setItem('pastel-theme', theme);
+    }
+
+    const saved = localStorage.getItem('pastel-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(saved || (prefersDark ? 'dark' : 'light'));
+
+    btn.addEventListener('click', () => {
+      applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    // ── GitHub repo card ──
+    (async () => {
+      try {
+        const [repo, contribs] = await Promise.all([
+          fetch('https://api.github.com/repos/plungarini/even-apps').then(r => r.json()),
+          fetch('https://api.github.com/repos/plungarini/even-apps/contributors?per_page=1&anon=true', {
+            headers: { Accept: 'application/vnd.github.v3+json' }
+          }).then(r => {
+            const link = r.headers.get('Link') || '';
+            const m = link.match(/page=(\d+)>; rel="last"/);
+            return m ? parseInt(m[1]) : null;
+          }).catch(() => null)
+        ]);
+
+        document.getElementById('repoStars').textContent = repo.stargazers_count ?? '0';
+        document.getElementById('repoForks').textContent = repo.forks_count ?? '0';
+        document.getElementById('repoIssues').textContent = repo.open_issues_count ?? '0';
+        if (contribs !== null) document.getElementById('repoContribs').textContent = contribs;
+        if (repo.description) document.getElementById('repoDesc').textContent = repo.description;
+        if (repo.language) document.getElementById('repoLang').textContent = repo.language;
+
+        // language dot colour
+        const langColors = {
+          TypeScript: 'oklch(65% 0.12 250)', JavaScript: 'oklch(86% 0.15 90)',
+          Python: 'oklch(72% 0.12 220)', Dart: 'oklch(62% 0.12 200)', Swift: 'oklch(68% 0.12 30)',
+          Kotlin: 'oklch(58% 0.14 290)'
+        };
+        const dot = document.getElementById('repoLangDot');
+        if (repo.language && langColors[repo.language]) dot.style.background = langColors[repo.language];
+
+        // avatar
+        if (repo.owner?.avatar_url) {
+          const av = document.getElementById('repoAvatar');
+          av.src = repo.owner.avatar_url;
+          av.alt = repo.owner.login;
+          av.style.display = 'block';
+        }
+      } catch (e) { /* silently keep defaults */ }
+    })();
+
+    // ── Pitch form ──
+    document.getElementById('pitchForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('pitchEmail').value;
+      const msg = document.getElementById('pitchMessage').value;
+      if (!email || !msg) return;
+      const subject = encodeURIComponent('Even Hub - App Idea');
+      const body = encodeURIComponent('From: ' + email + '\n\n' + msg);
+      window.open('mailto:pietro@lungarini.it?subject=' + subject + '&body=' + body);
+      document.getElementById('formSent').style.display = 'inline';
+      this.reset();
+    });
+
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>
