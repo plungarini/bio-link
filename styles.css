@@ -107,7 +107,7 @@
 
 :root[data-theme='dark'],
 .theme-dark {
-	--bg-page: oklch(26% 0.008 245);
+	--bg-page: oklch(0.2 0.008 245);
 	--bg-surface: oklch(30% 0.01 245);
 	--bg-sunken: oklch(22% 0.006 245);
 	--bg-inverse: oklch(96% 0.018 82);
@@ -192,11 +192,11 @@ body {
 }
 :root[data-theme='light'] .grain::before,
 .theme-light .grain::before {
-	opacity: 0.15;
+	opacity: 0.12 !important;
 }
 :root[data-theme='dark'] .grain::before,
 .theme-dark .grain::before {
-	opacity: 0.05;
+	opacity: 0.05 !important;
 }
 h1,
 .h1 {
