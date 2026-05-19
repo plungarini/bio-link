@@ -1,0 +1,21 @@
+{
+	"name": "bio-link",
+	"version": "0.5.0",
+	"description": "A lightweight personal link-in-bio page for Pietro Lungarini.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/plungarini/bio-link.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs",
+	"bugs": {
+		"url": "https://github.com/plungarini/bio-link/issues"
+	},
+	"homepage": "https://github.com/plungarini/bio-link#readme"
+}

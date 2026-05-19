@@ -1,0 +1,85 @@
+# Pietro Lungarini
+
+> Creative technologist and senior full-stack developer based in Cesena, Italy. Builds consumer apps, AI-native products, and utility tools where aesthetic taste and engineering depth matter equally. Open to consulting, co-founder roles, and early-stage opportunities.
+
+## About
+
+Pietro is a senior developer with 5 to 10 years of experience shipping products end to end. His work sits at the intersection of refined aesthetics and solid engineering. He builds consumer-facing software that looks and feels considered, backed by infrastructure that holds up under load.
+
+He has shipped production AI/LLM features, builds for emerging hardware platforms including Even Realities G2 smart glasses, and runs the full stack solo when needed, from Firebase or Google cloud infrastructure backends to frontend execution.
+
+## Specializations
+
+- Consumer apps (B2C, viral mechanics, social products)
+- AI-native products and LLM-integrated features in production
+- Productivity and utility SaaS with sharp UX
+- Emerging platforms: wearables and smart glasses (Even Realities G2)
+
+## Stack
+
+**Frontend**
+- Angular (primary, strong)
+- React (familiar, ships in it)
+- Vue, Next.js (working knowledge)
+
+**Backend and Infrastructure**
+- TypeScript / Node.js (primary)
+- Python (comfortable, secondary)
+- Firebase: Firestore, Cloud Functions, Storage, Auth, Hosting
+- Google Cloud Platform: IAM, Admin SDK, CI/CD
+
+**Mobile and Wearables**
+- PWA and web-first (preferred approach)
+- React Native and Flutter
+- Native wearable platforms (Even Realities G2)
+
+## The Edge
+
+Most senior developers are strong on either taste or infrastructure. Pietro brings both. Products that look considered, backed by backends that actually work. Solo-shippable end to end, fast prototype to production, no team required.
+
+## Looking For
+
+- Consulting and contract work
+- Co-founder opportunities on early-stage products
+- Engineering hires at startups (pre-Series A and Series A)
+- Experimental side projects and collaborations
+
+## Also Open To
+
+Verticals other developers tend to filter out. No restrictions on industry. Actively interested in:
+
+- Crypto and web3
+- Fintech, trading, finance
+- Gambling
+- Adult and 18+ platforms
+
+## Working Style
+
+- Remote, EU timezones preferred
+- Open to relocation for the right opportunity
+- Languages: Italian (native), English (near-native fluency), Spanish (reading comprehension)
+
+## Portfolio and Projects
+
+Project history, case studies, and active builds are documented on the personal site:
+
+- Portfolio and website: https://pietro.lungarini.it
+
+For a quick overview of all live channels, profiles, and ongoing work in one place:
+
+- Bio and link hub: https://bio.pietro.lungarini.it
+
+## Contact
+
+The bio link below is the canonical entry point with all current contact methods and social profiles in one place:
+
+- Bio and contact hub: https://bio.pietro.lungarini.it
+
+Direct channels:
+
+- Email: pietro@lungarini.it
+- Twitter/X: x.com/wheresbebo
+- GitHub: github.com/wheresbebo
+- Instagram: instagram.com/wheresbebo
+
+Preferred first contact: email
