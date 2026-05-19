@@ -8,7 +8,7 @@
 		<title>Even Hub - Apps · Pietro Lungarini</title>
 		<meta
 			name="description"
-			content="Personal link-in-bio page for Pietro Lungarini, full stack web developer."
+			content="Central hub for all of Pietro Lungarini's profiles, projects, and contact channels."
 		/>
 
 		<!-- Open Graph -->
@@ -16,7 +16,7 @@
 		<meta property="og:title" content="Pietro Lungarini" />
 		<meta
 			property="og:description"
-			content="Personal link-in-bio page for Pietro Lungarini, full stack web developer."
+			content="Central hub for all of Pietro Lungarini's profiles, projects, and contact channels."
 		/>
 		<meta property="og:url" content="https://bio.pietro.lungarini.it" />
 		<meta
@@ -35,7 +35,7 @@
 		<meta name="twitter:title" content="Pietro Lungarini" />
 		<meta
 			name="twitter:description"
-			content="Personal link-in-bio page for Pietro Lungarini, full stack web developer."
+			content="Central hub for all of Pietro Lungarini's profiles, projects, and contact channels."
 		/>
 
 		<!-- Canonical -->
@@ -751,6 +751,242 @@
 				animation: fadeUp 420ms cubic-bezier(0.22, 0.61, 0.36, 1) 100ms both;
 			}
 		</style>
+
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@graph": [
+					{
+						"@type": "CollectionPage",
+						"@id": "https://bio.pietro.lungarini.it/evenhub-apps/#collectionpage",
+						"url": "https://bio.pietro.lungarini.it/evenhub-apps/",
+						"name": "Even Hub Apps by Pietro Lungarini",
+						"description": "Apps built by Pietro Lungarini for Even Realities G2 smart glasses, available on the Even Hub.",
+						"inLanguage": "en",
+						"isPartOf": { "@id": "https://bio.pietro.lungarini.it/#website" },
+						"about": { "@id": "https://pietro.lungarini.it/#person" },
+						"creator": { "@id": "https://pietro.lungarini.it/#person" },
+						"mainEntity": {
+							"@id": "https://bio.pietro.lungarini.it/evenhub-apps/#applist"
+						},
+						"breadcrumb": {
+							"@id": "https://bio.pietro.lungarini.it/evenhub-apps/#breadcrumb"
+						},
+						"primaryImageOfPage": {
+							"@type": "ImageObject",
+							"url": "https://bio.pietro.lungarini.it/assets/og/og-preview.png",
+							"width": 1200,
+							"height": 630
+						}
+					},
+					{
+						"@type": "BreadcrumbList",
+						"@id": "https://bio.pietro.lungarini.it/evenhub-apps/#breadcrumb",
+						"itemListElement": [
+							{
+								"@type": "ListItem",
+								"position": 1,
+								"name": "Home",
+								"item": "https://bio.pietro.lungarini.it"
+							},
+							{
+								"@type": "ListItem",
+								"position": 2,
+								"name": "Even Hub Apps",
+								"item": "https://bio.pietro.lungarini.it/evenhub-apps/"
+							}
+						]
+					},
+					{
+						"@type": "ItemList",
+						"@id": "https://bio.pietro.lungarini.it/evenhub-apps/#applist",
+						"name": "Even Realities G2 Apps",
+						"numberOfItems": 7,
+						"itemListOrder": "https://schema.org/ItemListOrderAscending",
+						"itemListElement": [
+							{
+								"@type": "ListItem",
+								"position": 1,
+								"item": {
+									"@type": "SoftwareApplication",
+									"name": "Reddit Feed",
+									"description": "Browse your Reddit straight from your glasses.",
+									"applicationCategory": "SocialNetworkingApplication",
+									"operatingSystem": "Even Realities G2",
+									"url": "https://evenhub.evenrealities.com/landing?package_id=com.plungarini.redditfeed",
+									"identifier": "com.plungarini.redditfeed",
+									"image": "https://bio.pietro.lungarini.it/assets/icons/redditfeed.svg",
+									"author": { "@id": "https://pietro.lungarini.it/#person" }
+								}
+							},
+							{
+								"@type": "ListItem",
+								"position": 2,
+								"item": {
+									"@type": "SoftwareApplication",
+									"name": "Birdie",
+									"description": "Real-time bird ID from your glasses' mic.",
+									"applicationCategory": "LifestyleApplication",
+									"operatingSystem": "Even Realities G2",
+									"url": "https://evenhub.evenrealities.com/landing?package_id=com.plungarini.birdie",
+									"identifier": "com.plungarini.birdie",
+									"image": "https://bio.pietro.lungarini.it/assets/icons/birdie.svg",
+									"author": { "@id": "https://pietro.lungarini.it/#person" }
+								}
+							},
+							{
+								"@type": "ListItem",
+								"position": 3,
+								"item": {
+									"@type": "SoftwareApplication",
+									"name": "Blackjack",
+									"description": "Blackjack card counting trainer on the HUD.",
+									"applicationCategory": "GameApplication",
+									"operatingSystem": "Even Realities G2",
+									"url": "https://evenhub.evenrealities.com/landing?package_id=com.plungarini.blackjack",
+									"identifier": "com.plungarini.blackjack",
+									"image": "https://bio.pietro.lungarini.it/assets/icons/blackjack.svg",
+									"author": { "@id": "https://pietro.lungarini.it/#person" }
+								}
+							},
+							{
+								"@type": "ListItem",
+								"position": 4,
+								"item": {
+									"@type": "SoftwareApplication",
+									"name": "Smokeless",
+									"description": "Logs every cigarette so the frequency speaks for itself.",
+									"applicationCategory": "HealthApplication",
+									"operatingSystem": "Even Realities G2",
+									"url": "https://evenhub.evenrealities.com/landing?package_id=com.plungarini.smokeless",
+									"identifier": "com.plungarini.smokeless",
+									"image": "https://bio.pietro.lungarini.it/assets/icons/smokeless.svg",
+									"author": { "@id": "https://pietro.lungarini.it/#person" }
+								}
+							},
+							{
+								"@type": "ListItem",
+								"position": 5,
+								"item": {
+									"@type": "SoftwareApplication",
+									"name": "This Day",
+									"description": "A daily on-this-day history fact, served every morning.",
+									"applicationCategory": "ReferenceApplication",
+									"operatingSystem": "Even Realities G2",
+									"url": "https://evenhub.evenrealities.com/landing?package_id=com.plungarini.thisday",
+									"identifier": "com.plungarini.thisday",
+									"image": "https://bio.pietro.lungarini.it/assets/icons/thisday.svg",
+									"author": { "@id": "https://pietro.lungarini.it/#person" }
+								}
+							},
+							{
+								"@type": "ListItem",
+								"position": 6,
+								"item": {
+									"@type": "SoftwareApplication",
+									"name": "Phase",
+									"description": "Biorhythm reader that tracks your daily cycles.",
+									"applicationCategory": "LifestyleApplication",
+									"operatingSystem": "Even Realities G2",
+									"url": "https://evenhub.evenrealities.com/landing?package_id=com.plungarini.phase",
+									"identifier": "com.plungarini.phase",
+									"image": "https://bio.pietro.lungarini.it/assets/icons/phase.svg",
+									"author": { "@id": "https://pietro.lungarini.it/#person" }
+								}
+							},
+							{
+								"@type": "ListItem",
+								"position": 7,
+								"item": {
+									"@type": "SoftwareApplication",
+									"name": "The Void",
+									"description": "Tracks the world's death rate in real time.",
+									"applicationCategory": "LifestyleApplication",
+									"operatingSystem": "Even Realities G2",
+									"url": "https://evenhub.evenrealities.com/landing?package_id=com.plungarini.thevoid",
+									"identifier": "com.plungarini.thevoid",
+									"image": "https://bio.pietro.lungarini.it/assets/icons/thevoid.svg",
+									"author": { "@id": "https://pietro.lungarini.it/#person" }
+								}
+							}
+						]
+					},
+					{
+						"@type": "SoftwareSourceCode",
+						"@id": "https://github.com/plungarini/even-apps#repo",
+						"name": "even-apps",
+						"description": "Apps built for EvenRealities smart glasses.",
+						"codeRepository": "https://github.com/plungarini/even-apps",
+						"programmingLanguage": "TypeScript",
+						"author": { "@id": "https://pietro.lungarini.it/#person" }
+					},
+					{
+						"@type": "Person",
+						"@id": "https://pietro.lungarini.it/#person",
+						"name": "Pietro Lungarini",
+						"givenName": "Pietro",
+						"familyName": "Lungarini",
+						"alternateName": "wheresbebo",
+						"url": "https://pietro.lungarini.it",
+						"image": "https://bio.pietro.lungarini.it/assets/avatar.jpeg",
+						"jobTitle": "Full Stack Web Developer",
+						"description": "Senior full-stack developer based in Cesena, Italy. Builds consumer apps, AI-native products, utility tools, and apps for Even Realities G2 smart glasses.",
+						"nationality": "Italian",
+						"email": "mailto:pietro@lungarini.it",
+						"address": {
+							"@type": "PostalAddress",
+							"addressLocality": "Cesena",
+							"addressRegion": "Emilia-Romagna",
+							"addressCountry": "IT"
+						},
+						"knowsLanguage": [
+							{ "@type": "Language", "name": "Italian", "alternateName": "it" },
+							{ "@type": "Language", "name": "English", "alternateName": "en" },
+							{ "@type": "Language", "name": "Spanish", "alternateName": "es" }
+						],
+						"knowsAbout": [
+							"Full-stack web development",
+							"Firebase",
+							"Google Cloud Platform",
+							"TypeScript",
+							"Node.js",
+							"Python",
+							"Angular",
+							"React",
+							"Vue.js",
+							"Next.js",
+							"React Native",
+							"Flutter",
+							"AI integration",
+							"Large Language Models",
+							"Smart glasses development",
+							"Even Realities G2",
+							"Wearable computing",
+							"Progressive Web Apps",
+							"Consumer apps"
+						],
+						"sameAs": [
+							"https://pietro.lungarini.it",
+							"https://x.com/wheresbebo",
+							"https://twitter.com/wheresbebo",
+							"https://instagram.com/wheresbebo",
+							"https://github.com/plungarini",
+							"https://buymeacoffee.com/wheresbebo"
+						]
+					},
+					{
+						"@type": "WebSite",
+						"@id": "https://bio.pietro.lungarini.it/#website",
+						"url": "https://bio.pietro.lungarini.it",
+						"name": "Pietro Lungarini, Bio and Links",
+						"description": "Central hub for all of Pietro Lungarini's profiles, projects, and contact channels.",
+						"inLanguage": "en",
+						"publisher": { "@id": "https://pietro.lungarini.it/#person" },
+						"about": { "@id": "https://pietro.lungarini.it/#person" }
+					}
+				]
+			}
+		</script>
 	</head>
 
 	<body>

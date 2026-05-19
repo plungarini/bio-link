@@ -8,7 +8,7 @@
 		<title>Pietro Lungarini</title>
 		<meta
 			name="description"
-			content="Personal link-in-bio page for Pietro Lungarini, full stack web developer."
+			content="Central hub for all of Pietro Lungarini's profiles, projects, and contact channels."
 		/>
 
 		<!-- Open Graph -->
@@ -16,7 +16,7 @@
 		<meta property="og:title" content="Pietro Lungarini" />
 		<meta
 			property="og:description"
-			content="Personal link-in-bio page for Pietro Lungarini, full stack web developer."
+			content="Central hub for all of Pietro Lungarini's profiles, projects, and contact channels."
 		/>
 		<meta property="og:url" content="https://bio.pietro.lungarini.it" />
 		<meta
@@ -35,7 +35,7 @@
 		<meta name="twitter:title" content="Pietro Lungarini" />
 		<meta
 			name="twitter:description"
-			content="Personal link-in-bio page for Pietro Lungarini, full stack web developer."
+			content="Central hub for all of Pietro Lungarini's profiles, projects, and contact channels."
 		/>
 
 		<!-- Canonical -->
@@ -542,6 +542,108 @@
 				animation: fadeUp var(--dur-slow) var(--ease-out) 160ms both;
 			}
 		</style>
+
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@graph": [
+					{
+						"@type": "ProfilePage",
+						"@id": "https://bio.pietro.lungarini.it/#profilepage",
+						"url": "https://bio.pietro.lungarini.it",
+						"name": "Pietro Lungarini",
+						"description": "Central hub for all of Pietro Lungarini's profiles, projects, and contact channels.",
+						"inLanguage": "en",
+						"mainEntity": { "@id": "https://pietro.lungarini.it/#person" },
+						"isPartOf": { "@id": "https://bio.pietro.lungarini.it/#website" },
+						"hasPart": [
+							{
+								"@id": "https://bio.pietro.lungarini.it/evenhub-apps/#collectionpage"
+							}
+						],
+						"primaryImageOfPage": {
+							"@type": "ImageObject",
+							"url": "https://bio.pietro.lungarini.it/assets/og/og-preview.png",
+							"width": 1200,
+							"height": 630
+						},
+						"significantLink": [
+							"https://github.com/plungarini",
+							"https://pietro.lungarini.it",
+							"https://bio.pietro.lungarini.it/evenhub-apps/",
+							"https://buymeacoffee.com/wheresbebo"
+						]
+					},
+					{
+						"@type": "Person",
+						"@id": "https://pietro.lungarini.it/#person",
+						"name": "Pietro Lungarini",
+						"givenName": "Pietro",
+						"familyName": "Lungarini",
+						"alternateName": "wheresbebo",
+						"url": "https://pietro.lungarini.it",
+						"image": "https://bio.pietro.lungarini.it/assets/avatar.jpeg",
+						"jobTitle": "Full Stack Web Developer",
+						"description": "Senior full-stack developer based in Cesena, Italy. Builds consumer apps, AI-native products, utility tools, and apps for Even Realities G2 smart glasses.",
+						"nationality": "Italian",
+						"email": "mailto:pietro@lungarini.it",
+						"address": {
+							"@type": "PostalAddress",
+							"addressLocality": "Cesena",
+							"addressRegion": "Emilia-Romagna",
+							"addressCountry": "IT"
+						},
+						"knowsLanguage": [
+							{ "@type": "Language", "name": "Italian", "alternateName": "it" },
+							{ "@type": "Language", "name": "English", "alternateName": "en" },
+							{ "@type": "Language", "name": "Spanish", "alternateName": "es" }
+						],
+						"knowsAbout": [
+							"Full-stack web development",
+							"Firebase",
+							"Google Cloud Platform",
+							"TypeScript",
+							"Node.js",
+							"Python",
+							"Angular",
+							"React",
+							"Vue.js",
+							"Next.js",
+							"React Native",
+							"Flutter",
+							"AI integration",
+							"Large Language Models",
+							"Smart glasses development",
+							"Even Realities G2",
+							"Wearable computing",
+							"Progressive Web Apps",
+							"Consumer apps"
+						],
+						"sameAs": [
+							"https://pietro.lungarini.it",
+							"https://x.com/wheresbebo",
+							"https://twitter.com/wheresbebo",
+							"https://instagram.com/wheresbebo",
+							"https://github.com/plungarini",
+							"https://buymeacoffee.com/wheresbebo"
+						],
+						"subjectOf": {
+							"@id": "https://bio.pietro.lungarini.it/#profilepage"
+						}
+					},
+					{
+						"@type": "WebSite",
+						"@id": "https://bio.pietro.lungarini.it/#website",
+						"url": "https://bio.pietro.lungarini.it",
+						"name": "Pietro Lungarini, Bio and Links",
+						"description": "Central hub for all of Pietro Lungarini's profiles, projects, and contact channels.",
+						"inLanguage": "en",
+						"publisher": { "@id": "https://pietro.lungarini.it/#person" },
+						"about": { "@id": "https://pietro.lungarini.it/#person" }
+					}
+				]
+			}
+		</script>
 	</head>
 
 	<body>
