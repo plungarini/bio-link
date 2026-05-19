@@ -287,6 +287,24 @@ pre,
 	border-radius: var(--r-lg);
 	box-shadow: var(--shadow-md), var(--shadow-inset);
 }
+.verified-badge {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	display: none;
+	vertical-align: middle;
+	margin-left: 12px;
+	margin-top: -4px;
+	flex-shrink: 0;
+}
+:root[data-theme='light'] .verified-badge.light,
+.theme-light .verified-badge.light {
+	display: inline-block !important;
+}
+:root[data-theme='dark'] .verified-badge.dark,
+.theme-dark .verified-badge.dark {
+	display: inline-block !important;
+}
 .tag {
 	display: inline-flex;
 	align-items: center;
